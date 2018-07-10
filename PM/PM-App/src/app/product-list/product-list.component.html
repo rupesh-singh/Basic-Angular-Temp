@@ -1,0 +1,27 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let product of products;">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>
+        <a [routerLink]="['/products/edit',product.id]">
+        <i class="fa fa-edit"></i>
+      </a>
+    </td>
+    <td>
+      <a href="#" (click)="deleteEntry(product.id)">
+        <i class="fa fa-trash"></i>
+      </a>
+    </td>
+  </tr>
+
+
+
+</table>

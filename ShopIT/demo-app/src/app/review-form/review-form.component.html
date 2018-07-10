@@ -1,0 +1,39 @@
+<div class="row">
+
+  <button class="btn btn-info" (click)="showForm($event)" *ngIf="!showFormBtn">Add Review</button>
+
+</div>
+
+<div class="row" *ngIf="showFormBtn">
+  <div class="col-8 col-sm-8 col-md-8">
+    <div class="card border-success mb-3">
+      <div class="card-header">Review Form</div>
+      <div class="card-body">
+
+        <form [formGroup]="reviewForm" (submit)="handleSubmit($event)">
+          <div class="form-group">
+            <label>stars</label>
+            <select class="form-control" formControlName="stars">
+              <option *ngFor="let i of [1,2,3,4,5]" value="{{i}}">{{i}}</option>
+
+            </select>
+
+          </div>
+          <div class="form-group">
+            <label>author</label>
+            <input type="author" formControlName="author" class="form-control" />
+            <span class="invalid">{{errorMessage.required}}</span>
+          </div>
+          <div class="form-group">
+            <label>body</label>
+            <textarea class="form-control" formControlName="body"></textarea>{{errorMessage.required}}
+
+          </div>
+          <button class="btn btn-primary">submit</button>&mdash;
+          <button class="btn btn-danger" type="button" (click)="showForm($event);">Cancel</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

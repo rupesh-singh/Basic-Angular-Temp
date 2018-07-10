@@ -1,0 +1,31 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">{{title}}</a>
+  </nav>
+  <hr/>
+
+<div class="row">
+
+<div class="col-3 col-3-sm col-3-md">
+    <ul class="nav flex-column nav-pills nav-fill">
+        <li class="nav-item">
+          <a [ngClass]="{'nav-link':true,'active':isTabSelected(1)}" (click)="changeTab($event,1)" routerLink='products'>View Products</a>
+        </li>
+        <li class="nav-item">
+          <a [ngClass]="{'nav-link':true,'active':isTabSelected(2)}" (click)="changeTab($event,2)" routerLink='add'>Add products</a>
+        </li>
+        
+      </ul>
+
+</div>
+
+<div class="col-9 col-9-sm col-9-md">
+
+  <router-outlet></router-outlet>
+
+</div>
+
+</div>
+
+
+</div>
