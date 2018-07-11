@@ -1,4 +1,4 @@
-package com.example.demo.web;
+package com.shopping.pc.web;
 
 import java.util.List;
 
@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.model.Product;
-import com.example.demo.repository.ProductRepository;
+import com.shopping.pc.model.Product;
+import com.shopping.pc.repository.ProductRepository;
 
 @Controller
 public class ProductController {
@@ -26,15 +27,14 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
-	public @ResponseBody Product findProductsById(@PathVariable("id") int id) {
-		System.out.println("Updating User " + id);
+	public @ResponseBody Product findProductById(@PathVariable("id") int id) {
+		// System.out.println("Updating User " + id);
 		return productRepository.find(id);
 	}
 
-	
-	@RequestMapping(value = "/api/products/name/{name}", method = RequestMethod.GET)
-	public @ResponseBody List<Product> findProductsByName(@PathVariable("name") String name) {
-		System.out.println("Updating User " + name);
+	@RequestMapping(value = "/api/products", method = RequestMethod.GET, params = { "name" })
+	public @ResponseBody List<Product> findProductsByName(@RequestParam() String name) {
+		// System.out.println("Updating User " + name);
 		return productRepository.findByName(name);
 	}
 

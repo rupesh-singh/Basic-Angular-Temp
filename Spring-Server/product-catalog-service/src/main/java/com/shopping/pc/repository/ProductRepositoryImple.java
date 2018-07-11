@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.shopping.pc.repository;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.model.Product;
+import com.shopping.pc.model.Product;
 
 @Repository(value = "productRepository")
 public class ProductRepositoryImple implements ProductRepository {

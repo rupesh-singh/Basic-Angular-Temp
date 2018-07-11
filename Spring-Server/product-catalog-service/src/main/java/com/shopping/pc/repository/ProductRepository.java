@@ -1,8 +1,8 @@
-package com.example.demo.repository;
+package com.shopping.pc.repository;
 
 import java.util.List;
 
-import com.example.demo.model.Product;
+import com.shopping.pc.model.Product;
 
 public interface ProductRepository {
 	
