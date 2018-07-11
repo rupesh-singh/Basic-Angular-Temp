@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.shopping.pc.model.Product;
+import com.shopping.pc.repository.exception.ProductNotFoundException;
 
 @Repository(value = "productRepository")
 public class ProductRepositoryImple implements ProductRepository {
@@ -25,16 +26,18 @@ public class ProductRepositoryImple implements ProductRepository {
 	}
 
 	@Override
-	public Product find(int id) {
-
-		return entityManager.find(Product.class, id);
+	public Product find(int id){
+		
+		Product product=entityManager.find(Product.class, id);
+		if(product==null)
+			throw new ProductNotFoundException("Resourse Not Available");
+		return product;
 	}
 
 	@Override
 	public List<Product> findByName(String name) {
-		
 		Query query = entityManager.createQuery("from Product where name like :arg1");
-		query.setParameter("arg1", "%"+name+"%");
+		query.setParameter("arg1", "%" + name + "%");
 		return query.getResultList();
 	}
 
