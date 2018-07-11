@@ -1,0 +1,22 @@
+
+
+create database onlineshopdb;
+
+create table products(
+id int primary key auto_increment,
+name varchar(200),
+price double,
+makeDate date,
+image varchar(200),
+description varchar(256)
+);
+
+ALTER TABLE products ADD id autoincrement;
+
+insert into products(name, price, makeDate, image, description) values('laptop',200000,'2018-06-01','laptop.jpg','Good product');
+
+insert into products(name, price, makeDate, image, description) values(2,'mobile',20000,'2018-06-01','mobile.png','Good product');
+
+
+ALTER TABLE products RENAME COLUMN makeDate TO make_date
+ALTER TABLE products RENAME COLUMN makeDate TO dte;
