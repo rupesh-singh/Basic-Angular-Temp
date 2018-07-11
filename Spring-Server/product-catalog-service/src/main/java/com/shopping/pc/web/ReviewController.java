@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.shopping.pc.model.Product;
 import com.shopping.pc.model.Review;
 import com.shopping.pc.repository.ReviewRepository;
+
+@CrossOrigin(origins="*")
 @Controller
 public class ReviewController {
 
@@ -23,7 +26,7 @@ public class ReviewController {
 	
 	
 
-	@RequestMapping(value = "/api/products/review/{prodId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/products/{prodId}/review", method = RequestMethod.GET)
 	public @ResponseBody List<Review> findReview(@PathVariable("prodId") int id) {
 		System.out.println("loading");
 		return reviewRepository.loadReview(id);
@@ -32,7 +35,6 @@ public class ReviewController {
 	
 	@RequestMapping(value="/api/products/{productId}/review",method=RequestMethod.POST, produces="application/json", consumes="application/json")
 	public @ResponseBody Review post(@PathVariable int productId, @RequestBody ReviewForm form) {
-		System.out.println("hello");
 
 		Product product=new Product();
 		product.setId(productId);
@@ -41,7 +43,6 @@ public class ReviewController {
 		review.setAuthor(form.getAuthor());
 		review.setComent(form.getComment());
 		review.setProduct(product);
-		System.out.println("hello");
 		return reviewRepository.save(review);
 		
 		
