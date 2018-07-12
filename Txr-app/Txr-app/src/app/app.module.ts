@@ -7,11 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SummaryComponent } from './summary/summary.component';
 
 const routes:Routes=[
   {path: '', component: HomeComponent},
   {path:'account', component: AccountComponent },
-  {path:'txr', component: TransactionComponent }
+  {path:'txr', component: TransactionComponent },
+  {path:'summary', component: SummaryComponent }
+
 ];
 
 @NgModule({
@@ -19,7 +22,8 @@ const routes:Routes=[
     AppComponent,
     HomeComponent,
     AccountComponent,
-    TransactionComponent
+    TransactionComponent,
+    SummaryComponent
    
   ],
   imports: [

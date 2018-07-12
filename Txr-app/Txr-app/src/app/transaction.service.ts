@@ -6,16 +6,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TransactionService {
 
-  constructor(private http:HttpClient) { }
-  apiUrl="http://localhost:8080/api/account";
+  constructor(private http: HttpClient) { }
+  apiUrl = "http://localhost:8080/api/account";
 
   loadProducts() {
     return this.http.get(this.apiUrl)
   }
 
-doTransaction(newTrans){
-  return this.http.post("http://localhost:8080/api/txr",newTrans);
+  doTransaction(newTrans) {
+    return this.http.post("http://localhost:8080/api/txr", newTrans);
 
-}
+  }
+
+  loadTxr() {
+    return this.http.get("http://localhost:8080/api/txr");
+
+  }
 
 }

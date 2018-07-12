@@ -1,0 +1,43 @@
+<div class="alert alert-info">Account Summary</div>
+<hr/>
+<div class="row">
+  <div class="col-5">
+    From:
+    <input type="date" class="form-control" />
+  </div>&nbsp;
+  <div class="col-5">
+    To:
+    <input type="date" class="form-control">
+  </div>
+</div>
+<hr/>
+<div col="col-2">
+  <button class="btn btn-primary" (click)="handleSubmit($event)">Get Transaction</button>
+</div>
+<hr/>
+
+<table class="table table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <!-- <th>Id</th> -->
+      <th>ID</th>
+      <th>Date </th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Closing Balance</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let txr of transaction">
+      <!-- <td>{{product.id}}</td> -->
+      <td>{{txr.id}}</td>
+      <td>{{txr.date}}</td>
+      <td>{{ txr.amount | currency:'INR'}}</td>
+      <td>{{txr.type}}</td>
+      <td>{{txr.closingBalance | currency:'INR'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>

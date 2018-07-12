@@ -8,11 +8,13 @@ import {TransactionService} from '../transaction.service';
 })
 export class AccountComponent implements OnInit {
 
+  txn:any=[];
   constructor(private ts: TransactionService) { }
  accounts:any=[];
   ngOnInit() {
     this.ts.loadProducts().subscribe(e=>{
       console.log(e);
+      //this.txn=e.transactions;
       this.accounts=e;
     })
   }
