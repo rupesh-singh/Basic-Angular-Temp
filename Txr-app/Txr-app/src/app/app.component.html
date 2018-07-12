@@ -1,0 +1,20 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-primary">
+        <a class="navbar-brand" routerLink="['']">Account-app</a>
+      </nav>
+<hr/>
+<hr/>
+<div class="row">
+
+  <div class="col-3">
+<nav class="nav flex-column">
+    <a class="nav-link active" [routerLink]="['account']">View Account</a>
+    <a class="nav-link" [routerLink]="['txr']">Do Transaction</a>
+  </nav>
+</div>
+<div class="col-9">
+    <router-outlet></router-outlet>
+</div>
+</div>
+
+</div>

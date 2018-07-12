@@ -1,0 +1,36 @@
+
+
+  
+  <div class="card">
+    <div class="card-header">Transaction Form</div>
+    <div class="card-body">
+
+      <form [formGroup]="transactionForm" (submit)="handleFormSubmit($event)">
+        <div class="form-group">
+
+          <label>From Account Number:</label>
+          <select class="form-control" formControlName="fromAccNum">
+            <option *ngFor="let account of accounts" [value]="account.num">{{account.num}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>To Account Number:</label>
+          <select class="form-control" formControlName="toAccNum">
+            <option *ngFor="let account of accounts" [value]="account.num">{{account.num}}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Amount</label>
+          <input type="number" class="form-control" formControlName="amount" />
+          <span class="is-invalid">{{errors.required}}</span>
+        </div>
+
+        <button class="btn btn-primary">submit</button>
+
+      </form>
+
+    </div>
+  </div>
