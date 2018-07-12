@@ -1,5 +1,5 @@
 <div class="container">
-    <nav class="navbar navbar-light bg-primary">
+    <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" routerLink="['']">Account-app</a>
       </nav>
 <hr/>
@@ -7,11 +7,15 @@
 <div class="row">
 
   <div class="col-3">
-<nav class="nav flex-column">
-    <a class="nav-link active" [routerLink]="['account']">View Account</a>
-    <a class="nav-link" [routerLink]="['txr']">Do Transaction</a>
+<nav class="nav flex-column nav-pills nav-fill">
+    <a [ngClass]="{'nav-link':true,'active':isTabSelected(1)}" (click)="changeTab($event,1)" [routerLink]="['account']">View Account</a>
+    <a [ngClass]="{'nav-link':true,'active':isTabSelected(2)}" (click)="changeTab($event,2)" [routerLink]="['txr']">Do Transaction</a>
   </nav>
 </div>
+
+
+          
+
 <div class="col-9">
     <router-outlet></router-outlet>
 </div>

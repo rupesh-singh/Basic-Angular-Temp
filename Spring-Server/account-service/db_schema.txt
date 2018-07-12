@@ -10,8 +10,10 @@ create table my_bank.ACCOUNTS(
 	type varchar(20)
 );
 
-insert into my_bank.ACCOUNTS values('1','Nag',1000.00,'SAVING');
-insert into my_bank.ACCOUNTS values('2','Ria',1000.00,'SAVING');
+insert into my_bank.accounts values('3','Rupesh',10000.00,'CURENT');
+insert into my_bank.ACCOUNTS values('4','HASMEET',100000.00,'SAVING');
+
+insert into my_bank.ACCOUNTS values('5','KISHORE',60000.00,'SAVING');
 
 create table my_bank.txns(
 	id int primary key auto_increment,

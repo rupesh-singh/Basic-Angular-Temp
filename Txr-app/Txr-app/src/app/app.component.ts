@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+
+  currentTab: number = 0;
+
+  isTabSelected(idx) {
+    return this.currentTab === idx;
+  }
+  changeTab(event,idx){
+    this.currentTab=idx;
+  }
 }
