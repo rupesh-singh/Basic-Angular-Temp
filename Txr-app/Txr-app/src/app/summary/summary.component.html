@@ -32,7 +32,7 @@
     <tr *ngFor="let txr of transaction">
       <!-- <td>{{product.id}}</td> -->
       <td>{{txr.id}}</td>
-      <td>{{txr.date}}</td>
+      <td>{{txr.date | Date}}</td>
       <td>{{ txr.amount | currency:'INR'}}</td>
       <td>{{txr.type}}</td>
       <td>{{txr.closingBalance | currency:'INR'}}</td>
